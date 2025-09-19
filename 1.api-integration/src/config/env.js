@@ -16,6 +16,7 @@ class env {
       DOG_API_BASE_URL: Joi.string().uri().required(),
       REDIS_HOST: Joi.string().required(),
       REDIS_PORT: Joi.number().port().required(),
+      REDIS_TTL: Joi.number().positive().required(),
     })
       .unknown(true)
       .validateAsync(process.env);
