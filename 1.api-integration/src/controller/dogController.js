@@ -1,8 +1,8 @@
-const openWeatherService = require("../service/dogService");
+const dogService = require("../service/dogService");
 
 exports.sync = async (req, res, next) => {
   try {
-    await openWeatherService.sync();
+    await dogService.sync();
     res.sendStatus(200);
   } catch (e) {
     next(e);
@@ -11,7 +11,7 @@ exports.sync = async (req, res, next) => {
 
 exports.items = async (req, res, next) => {
   try {
-    const data = await openWeatherService.get();
+    const data = await dogService.get();
 
     res.json({
       data,
