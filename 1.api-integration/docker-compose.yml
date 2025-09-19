@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: dog-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dog
+    ports:
+      - "3306:3306"
+    volumes:
+      - dog-mysql-data:/var/lib/mysql
+  redis:
+    image: redis:7
+    container_name: dog-redis
+    ports:
+      - "6379:6379"
+volumes:
+  dog-mysql-data:
